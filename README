@@ -1,1 +1,14 @@
 See documentation at http://greylurk.com/index.php/berryseed/
+
+A BerrySeed application is composed of several basic components:
+
+1) A Main Application which is an instance of a QNXAirApplication object.   
+This application acts as a container for the navigation components.  This
+handles the top-swipe event to show a navigation panel, and provides the 
+foundational navigation metaphor.  It also provides a "toolbar" at the top 
+of every page.
+
+2) One or more Screens, which are added to the Application and serve as
+the main user interface for the application.  Each application is made
+up of multiple screens, which can be navigated between using the top-swipe
+navigation bar.

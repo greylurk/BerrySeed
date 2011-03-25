@@ -30,6 +30,9 @@ package com.greylurk.berryseed
 	import qnx.ui.skins.listClasses.DropDownBackgroundSkinBlack;
 	import qnx.ui.text.Label;
 
+	/**
+	 * 
+	 */
 	public class NavigationBar extends Panel
 	{
 		private var _shim:Sprite;
