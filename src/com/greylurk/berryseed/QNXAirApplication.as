@@ -16,13 +16,16 @@ package com.greylurk.berryseed
 		private var _messageBus:EventDispatcher;
 		private var navBar:NavigationBar;
 
+		/**
+		 * The message bus acts to exchange events between the root application, 
+		 * it's screens, the navigation bar and the toolbar.
+		 */
 		protected function get messageBus():EventDispatcher {
 			return _messageBus;
 		}
 		
 		/**
-		 * The message bus acts to exchange events between the root application, 
-		 * it's screens, the navigation bar and the toolbar.
+		 * Create an empty QNXAirApplication
 		 */
 		public function QNXAirApplication()
 		{
@@ -58,10 +61,6 @@ package com.greylurk.berryseed
 			}
 		}
 		
-		private function navigationEventHandler( event:NavigationEvent ): void {
-			navigateTo(event.destinationScreen);
-		}
-		
 		/**
 		 * Navigate to a specific screen.  Hides all other screens and brings 
 		 * the specified screen to the front.
@@ -80,6 +79,10 @@ package com.greylurk.berryseed
 			navBar.currentScreen = screen;
 		}
 
+		private function navigationEventHandler( event:NavigationEvent ): void {
+			navigateTo(event.destinationScreen);
+		}
+		
 		private function bringChildToFront( child:DisplayObject ):void {
 			if( numChildren >= 1 ) {
 				setChildIndex( child, numChildren - 1 );

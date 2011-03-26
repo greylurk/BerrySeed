@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+ This is a build.xml template file for Apache Ant.
+ Download Apache Ant from here: http://ant.apache.org/
+ Note that this file only work for Windows machines.
+ 
+--> 
+<project name="BerrySeed" default="build-debug" basedir="."> 
+	
+	<!-- Overwrite these properties --> 
+	<property file="local.properties" />
+	<property name="Suffix" value="as"/>	
+	<property name="ASDOC_TITLE" value="BerrySeed" />
+	<property name="ASDOC_FOOTER" value="BerrySeed" />
+	<property name="ASDOC_WINDOW_TITLE" value="BerrySeed" />
+	<property name="path.libs" value="${basedir}/libs" />
+	<property name="path.build" value="${basedir}/build" />
+	<property name="path.src" value="${basedir}/src" />
+ 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+	<target name="build-debug"> 
+		<compc output="${basedir}/build-debug/BerrySeed-debug.swc" compiler.debug="true">
+			<load-config filename="${FLEX_HOME}/frameworks/airmobile-config.xml" />
+			<include-sources dir="${path.src}">
+				<include name="**/*.as" />
+			</include-sources>
+		</compc>
+	</target> 
+	
+	<target name="build-release"> 
+		<compc output="${basedir}/build-release/BerrySeed.swc">
+			<load-config filename="${FLEX_HOME}/frameworks/airmobile-config.xml" />
+			<include-sources dir="${path.src}">
+				<include name="**/*.as" />
+			</include-sources>
+		</compc>
+	</target> 
+		
+	<target name="document" description="Generating API for this project">
+		<echo>Generate API for project</echo>
+			
+		<asdoc  output="${basedir}/doc"
+				main-title="${ASDOC_TITLE}"
+				window-title="${ASDOC_WINDOW_TITLE}"
+				footer="${ASDOC_FOOTER}"
+				left-frameset-width="300"
+				lenient="true" 
+				fork="true"
+				failonerror="true" >
+			<load-config filename="${FLEX_HOME}/frameworks/air-config.xml" />
+               
+			<!-- compile for all as/mxml/swc files -->          
+			<doc-sources path-element="${path.src}"/>               
+			<!--
+			<doc-sources path-element="${path.libs}"/>
+			-->  
+				
+			<!-- src -->
+			<compiler.source-path path-element="${path.src}"/>                              
+			   
+			<!-- libs - this excludes from linking when compiling a SWF file -->
+			<external-library-path dir="${BLACKBERRY_SDK}/framework/libs/blackberry"/>
+			<external-library-path dir="${BLACKBERRY_SDK}/framework/libs/qnx-screen"/>
+			
+			<!-- prevent documentation/linking for generated directory -->
+			<!-- <exclude-sources path-element="${APPLICATION_HOME}/src/generated"/>  -->
+		</asdoc>
+	</target>
+</project>
