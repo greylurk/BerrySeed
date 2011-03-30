@@ -1,4 +1,4 @@
-package com.greylurk.berryseed
+package com.greylurk.berryseed.ui
 {
 	import flash.events.EventDispatcher;
 	import qnx.ui.core.UIComponent;

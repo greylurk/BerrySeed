@@ -1,4 +1,4 @@
-package com.greylurk.berryseed
+package com.greylurk.berryseed.ui
 {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;

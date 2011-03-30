@@ -1,4 +1,4 @@
-package com.greylurk.berryseed
+package com.greylurk.berryseed.ui
 {
 	import flash.display.GradientType;
 	import flash.geom.Matrix;

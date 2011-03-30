@@ -1,10 +1,11 @@
-package com.greylurk.berryseed
+package com.greylurk.berryseed.ui
 {
 	import flash.display.DisplayObject;
 	import flash.events.EventDispatcher;
 	
 	import qnx.ui.core.Container;
 	import qnx.ui.core.Containment;
+	import com.greylurk.berryseed.event.NavigationEvent;
 
 	/**
 	 * This class is the application level object which acts as the display

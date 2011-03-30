@@ -1,4 +1,4 @@
-package com.greylurk.berryseed
+package com.greylurk.berryseed.ui
 {
 	import com.greylurk.berryseed.animation.AnimationEvent;
 	import com.greylurk.berryseed.animation.Slide;
@@ -29,9 +29,21 @@ package com.greylurk.berryseed
 	import qnx.ui.skins.buttons.RoundedButtonSkinBlack;
 	import qnx.ui.skins.listClasses.DropDownBackgroundSkinBlack;
 	import qnx.ui.text.Label;
+	import com.greylurk.berryseed.event.NavigationEvent;
 
 	/**
+	 * The NavigationBar does not dispatch NavigationEvents from itself, 
+	 * however it does dispatch them to the associated messageBus.
 	 * 
+	 * @see messageBus
+	 */
+	[Event(name="navigateTo", type="com.greylurk.berryseed.event.NavigationEvent")]
+	
+	/**
+	 * The NavigationBar class provides both the swipe down navigation stack 
+	 * for moving between different screens in your application, as well as 
+	 * a toolbar which screens can define tools for.  It also displays the 
+	 * title of the current screen on top of the application stack.
 	 */
 	public class NavigationBar extends Panel
 	{
@@ -46,6 +58,9 @@ package com.greylurk.berryseed
 		private var _screenLabel:Label;
 		private var _buttonContainer:qnx.ui.core.Container;
 		
+		/**
+		 * Create a new NavivationBar object.  
+		 */
 		public function NavigationBar()
 		{
 			QNXApplication.qnxApplication.addEventListener(QNXApplicationEvent.SWIPE_DOWN, swipeDownHandler);
@@ -54,6 +69,12 @@ package com.greylurk.berryseed
 			_navButtons = new Dictionary();
 		}
 
+		/**
+		 * The messageBus is a mechanism for passing events between the 
+		 * screens, the application, and the NavigationBar.  
+		 * NavigationEvents generated from the NavigationBar are broadcast
+		 * over this interface.
+		 */
 		public function get messageBus():EventDispatcher
 		{
 			return _messageBus;
@@ -64,6 +85,9 @@ package com.greylurk.berryseed
 			_messageBus = value;
 		}
 		
+		/**
+		 * Positions the navigation bar slightly off screen
+		 */
 		protected override function onAdded():void {
 			super.onAdded();
 			
@@ -71,10 +95,6 @@ package com.greylurk.berryseed
 			_navBar.setSize( stage.fullScreenWidth, 128 );
 			_toolBar.setSize( stage.fullScreenWidth, 64 );
 			setSize( stage.fullScreenWidth, 192 );
-		}
-		
-		protected override function onRemoved():void {
-			super.onRemoved();
 		}
 		
 		private function initializeUI():void {
@@ -138,6 +158,10 @@ package com.greylurk.berryseed
 			}
 		}
 		
+		/**
+		 * Set the current Screen which should be reflected in the tool bar 
+		 * and title of the NavigationBar.
+		 */
 		public function set currentScreen( value:Screen ):void {
 			_currentScreen = value;
 			setToolBarElements(value.toolBarElements);
@@ -173,6 +197,15 @@ package com.greylurk.berryseed
 			_buttonContainer.layout();
 		}
 		
+		/**
+		 * Add a navigation button to the NavigationBar. The Buttons will be 
+		 * displayed in the order that they are added to the NavigationBar
+		 * 
+		 * @param icon The graphic icon which will represent the screen in the 
+		 * navigation bar
+		 * 
+		 * @param screen The screen which should be transitioned to
+		 */
 		public function addNavigationButton( icon:Object, screen:UIComponent ):void {
 			var button:IconButton = new IconButton();
 		
@@ -189,9 +222,9 @@ package com.greylurk.berryseed
 			_navBar.layout();
 		}
 		
-		/**
+		/*
 		 * Event Handlers
-		 **/
+		 */
 		
 		private function swipeDownHandler( event:QNXApplicationEvent ) : void {
 			showNavButtons();

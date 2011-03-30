@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="true" version="3">
   <includeClasses>
-    <classEntry path="com.greylurk.berryseed.IconLabelButton"/>
-    <classEntry path="com.greylurk.berryseed.Screen"/>
-    <classEntry path="com.greylurk.berryseed.NavigationEvent"/>
-    <classEntry path="com.greylurk.berryseed.NavigationBar"/>
-    <classEntry path="com.greylurk.berryseed.Panel"/>
-    <classEntry path="com.greylurk.berryseed.QNXAirApplication"/>
+    <classEntry path="com.greylurk.berryseed.ui.IconLabelButton"/>
+    <classEntry path="com.greylurk.berryseed.ui.Screen"/>
+    <classEntry path="com.greylurk.berryseed.event.NavigationEvent"/>
+    <classEntry path="com.greylurk.berryseed.ui.NavigationBar"/>
+    <classEntry path="com.greylurk.berryseed.ui.Panel"/>
+    <classEntry path="com.greylurk.berryseed.ui.QNXAirApplication"/>
     <classEntry path="com.greylurk.berryseed.animation.AlphaFade"/>
     <classEntry path="com.greylurk.berryseed.animation.IEaser"/>
     <classEntry path="com.greylurk.berryseed.animation.IAnimation"/>
     <classEntry path="com.greylurk.berryseed.animation.AbstractAnimation"/>
     <classEntry path="com.greylurk.berryseed.animation.AnimationEvent"/>
     <classEntry path="com.greylurk.berryseed.animation.Slide"/>
+    <classEntry path="com.greylurk.berryseed.ui.preferences.PreferenceScreen"/>
+    <classEntry path="com.greylurk.berryseed.preferences.PreferenceSection"/>
+    <classEntry path="com.greylurk.berryseed.ui.preferences.PreferenceSectionCellRenderer"/>
+    <classEntry path="com.greylurk.berryseed.ui.SkinAssets"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
