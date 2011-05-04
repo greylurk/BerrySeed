@@ -26,9 +26,9 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="3" linkType="1" path="C:/Program Files/Adobe/Adobe Flash Builder Burrito/sdks/blackberry-tablet-sdk-0.9.4/frameworks/libs/blackberry/blackberry.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="C:/Program Files/Adobe/Adobe Flash Builder Burrito/sdks/blackberry-tablet-sdk-0.9.4/frameworks/libs/qnx-screen/qnx-screen.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="C:/Program Files/Adobe/Adobe Flash Builder Burrito/sdks/blackberry-tablet-sdk-0.9.4/frameworks/libs/air/qnx-air.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="C:/Program Files/Adobe/Adobe Flash Builder Burrito/sdks/blackberry-tablet-sdk-1.0.1/frameworks/libs/blackberry/blackberry.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="C:/Program Files/Adobe/Adobe Flash Builder Burrito/sdks/blackberry-tablet-sdk-1.0.1/frameworks/libs/qnx-screen/qnx-screen.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="C:/Program Files/Adobe/Adobe Flash Builder Burrito/sdks/blackberry-tablet-sdk-1.0.1/frameworks/libs/air/qnx-air.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>

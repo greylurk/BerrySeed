@@ -17,6 +17,6 @@ package com.greylurk.berryseed.preferences
 		/**
 		 * A 32x32 icon representing the preference section
 		 */
-		public var icon:Class;
+		public var icon:Object;
 	}
 }

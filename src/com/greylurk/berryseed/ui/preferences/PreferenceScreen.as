@@ -1,6 +1,7 @@
 package com.greylurk.berryseed.ui.preferences
 {	
 	import com.greylurk.berryseed.preferences.PreferenceSection;
+	import com.greylurk.berryseed.ui.Screen;
 	
 	import flash.events.Event;
 	
@@ -9,15 +10,27 @@ package com.greylurk.berryseed.ui.preferences
 	import qnx.ui.core.SizeMode;
 	import qnx.ui.core.SizeUnit;
 	import qnx.ui.core.UIComponent;
+	import qnx.ui.data.DataProvider;
 	import qnx.ui.listClasses.List;
 	import qnx.ui.listClasses.SectionList;
-	import com.greylurk.berryseed.ui.Screen;
 	
 	public class PreferenceScreen extends Screen
 	{
 		private var _preferenceSectionList:List;
 		private var _preferenceScreens:Vector.<SectionList>;
 		private var _preferenceSectionContainer:Container;
+		private var _preferenceSections:DataProvider;
+
+		public function get preferenceSections():DataProvider
+		{
+			return _preferenceSections;
+		}
+
+		public function set preferenceSections(value:DataProvider):void
+		{
+			_preferenceSections = value;
+		}
+
 		
 		public function PreferenceScreen()
 		{
@@ -30,6 +43,7 @@ package com.greylurk.berryseed.ui.preferences
 			_preferenceSectionList.containment = Containment.DOCK_LEFT;
 			_preferenceSectionList.size = 240;
 			_preferenceSectionList.sizeUnit = SizeUnit.PIXELS;
+			_preferenceSectionList.dataProvider = new DataProvider();
 			
 			addChild( _preferenceSectionList );
 			
@@ -42,8 +56,11 @@ package com.greylurk.berryseed.ui.preferences
 			addChild( _preferenceSectionContainer );
 		}
 		
-		public function addSection( section:PreferenceSection ):void {
-			
+		public function addSection( icon:Object, name:String ):void {
+			var prefSection:PreferenceSection = new PreferenceSection();
+			prefSection.icon = icon;
+			prefSection.name = name;
+			_preferenceSectionList.addItem( prefSection );
 		}
 		
 	}
